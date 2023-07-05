@@ -1,0 +1,25 @@
+
+# Mobile view is as follows 
+
+I will start building this project with the mobile view 
+(mvp: minimum viable product)
+## Components 
+### Major Regions 
+    1. Summary List 
+    a.  Stat Item 
+        - Color of background, text changes
+        - icon changes  
+        - text is bold for the numerator in the fraction being shown
+        - The fraction and icon value has to be picked from data.json 
+        - Colors used here are 
+            - hsl(0, 100%, 67%) hsl(0, 100%, 67%)
+            - Light red: hsl(0, 100%, 67%)
+            - Orangey yellow: hsl(39, 100%, 56%)
+            - Green teal: hsl(166, 100%, 37%)
+            - Cobalt blue: hsl(234, 85%, 45%)
+    2. Total Score Board
+        - It is different than the Summary List container as follows 
+          - uses following Colors
+          - contains four regions of which 'of 100 and bottom uses one type of class for color and size'
+          - The lower edge is rounded at bottom  in the mobile version and to the right in the desktop design
+    3. The main container main container contains both the summary list and the score board 

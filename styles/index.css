@@ -1,0 +1,6 @@
+/* To reset the user-agent stylesheet */
+@import url('./reset.css'); 
+:root{
+    --light-red:hsl(0, 100%, 67%);
+    --orangey-yellow:
+}
