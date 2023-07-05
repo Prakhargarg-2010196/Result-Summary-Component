@@ -57,7 +57,7 @@ function generateList() {
     populateList(listItems);
 })();
 
-function populateList(arrayOfObjects) {
+function populateList() {
     const listNodes = list.children;
     for (let i = 0; i < listNodes.length;i++) {
         const containers = listNodes[i].children;
