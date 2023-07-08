@@ -1,6 +1,32 @@
-/* To reset the user-agent stylesheet */
+/* Resets: To reset the user-agent stylesheet */
 @import url('./reset.css'); 
+
+/* Used to import external fonts in css  */
+
+/* If you want to directly use google fonts :
+import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@1,200&display=swap'); */
+@import url('./fonts.css');
+
+/* For declaring global variables*/
 :root{
+    /*  Use the color's opacity value i.e a value to 
+    modify color according to match the component.  */
     --light-red:hsl(0, 100%, 67%);
-    --orangey-yellow:
+    --orangey-yellow: hsl(39, 100%, 56%);
+    --green-teal: hsl(166, 100%, 37%);
+    /* Shades of Blue */
+    --cobalt-blue:hsl(234, 85%, 45%);
+    --slate-blue-gradient:hsl(252, 100%, 67%);
+    --royal-blue-gradient:hsl(241, 81%, 54%);
+    --violet-blue:hsla(256, 72%, 46%, 1);
+    --persian-blue:hsla(241, 72%, 46%, 0.4);
+    --pale-blue:hsl(221, 100%, 96%);
+    --lavender: hsl(241, 100%, 89%);
+    --gray-blue:hsl(224, 30%, 27%);
+    --white:hsl(0, 0%, 100%);
+    --para-text-size: 18px;
+}
+body{
+    font-family: "Hanken"  ,serif , sans-serif;
+    font-weight:normal;
 }
