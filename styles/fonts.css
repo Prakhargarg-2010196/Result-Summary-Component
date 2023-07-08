@@ -1,0 +1,22 @@
+/*  @font-face is used for declaring local fonts in the css 
+    Declare font-weights and font-style in @font-face decalarations to avoid redeclaration in css 
+    Explore here : https://www.456bereastreet.com/archive/201012/font-face_tip_define_font-weight_and_font-style_to_keep_your_css_simple/
+*/
+@font-face {
+    font-family: 'Hanken';
+    src: url("../assets/fonts/static/HankenGrotesk-Bold.ttf") format("truetype");
+    font-weight: 100;
+    font-style:normal;
+}
+@font-face {
+    font-family:'Hanken' ;
+    src: url("../assets/fonts/static/HankenGrotesk-Medium.ttf") format("truetype");
+    font-weight: 400;
+    font-style:normal;
+}
+@font-face {
+    font-family: "Hanken" ;
+    src: url('../assets/fonts/static/HankenGrotesk-ExtraBold.ttf') format("truetype");
+    font-weight: bolder;
+    font-style: normal;
+}
