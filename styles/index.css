@@ -126,17 +126,19 @@ body{
 
 /* Desktop Media Queries */
 @media (min-width:600px){
-
+    /* To center the entire component on the page  */
     .wrapper{
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
     }
+    /* This is for the desktop-styles applied to the container */
     .screen-active{
         display:flex;
         flex-direction: row;
         border-radius: 1.5em;
+        /* Box-shadow: inset(optional) x-offset y-offset blur-radius spread-radius color */
         box-shadow: 4px 5px 4px 5px grey;
         width:80%;
     }
