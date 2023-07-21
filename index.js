@@ -2,7 +2,8 @@
 const list = document.querySelector('.list');
 const root = document.querySelector(':root');
 
-
+// This function is used to get colors for the list elements
+const colors = getAllColors(root);
 function getAllColors(root) {
     let rootStyleObject = getComputedStyle(root);
     let colors = [];// for storing the colors
@@ -11,16 +12,13 @@ function getAllColors(root) {
     let greenTeal = rootStyleObject.getPropertyValue("--green-teal");
     let cobaltBlue = rootStyleObject.getPropertyValue("--cobalt-blue");
     colors.push(lightRed, orangeyYellow, greenTeal, cobaltBlue);
-    console.log(colors);
     return colors;
 }
-const colors = getAllColors(root);
+
 
 // An IIFE function expression to create dynamic DOM 
-
-
 (() => {
-    // now we would generate a list with list-items in it 
+    // Now we would generate a list with list-items in it 
     // with the structure described in html
     // also we would use the json file array of objects to populate the data
     for (let i = 0; i < 4; i++) {
@@ -64,7 +62,6 @@ const colors = getAllColors(root);
         descriptionContainer.appendChild(listItemTitle);
         scoreContainer.appendChild(listItemScoreNumerator);
         scoreContainer.appendChild(listItemScoreDenominator)
-        // console.log(scoreContainer);
         
         
         list.appendChild(listItem);
@@ -74,7 +71,7 @@ const colors = getAllColors(root);
     fetch('./data.json')
             .then(response => response.json())
             .then((data) => {
-                // populate the listItems fetched from the local json 
+                // populate the listItems fetched from the local json into the list  
                 populateList(data);
             }).catch(error => console.log(error));
     
@@ -82,6 +79,7 @@ const colors = getAllColors(root);
 
 // function to populate the list of items 
 function populateList(listItems) {
+    // grabs the list children nodes
     const listNodes = list.children;
     
     for (let i = 0; i < listNodes.length;i++) {
@@ -92,9 +90,7 @@ function populateList(listItems) {
         icon.setAttribute('alt',`${listItems[i].category}`)
         const category = descriptionChildren[1];
         category.textContent = `${listItems[i].category}`;
-        category.style.color = `hsl(${colors[i]})`;
-        const scoreContainer = containers[1];
-        
+        category.style.color = `hsl(${colors[i]})`;    
         const scoreContainerChildren = containers[1].children;
         const numerator = scoreContainerChildren[0];
         numerator.textContent = `${listItems[i].score}`;
