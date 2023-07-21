@@ -11,22 +11,141 @@ import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@1,
 :root{
     /*  Use the color's opacity value i.e a value to 
     modify color according to match the component.  */
-    --light-red:hsl(0, 100%, 67%);
-    --orangey-yellow: hsl(39, 100%, 56%);
-    --green-teal: hsl(166, 100%, 37%);
+    --light-red:0, 100%, 67%;
+    --orangey-yellow: 39, 100%, 56%;
+    --green-teal: 166, 100%, 37%;
     /* Shades of Blue */
-    --cobalt-blue:hsl(234, 85%, 45%);
+    --cobalt-blue:234, 85%, 45%;
     --slate-blue-gradient:hsl(252, 100%, 67%);
     --royal-blue-gradient:hsl(241, 81%, 54%);
     --violet-blue:hsla(256, 72%, 46%, 1);
     --persian-blue:hsla(241, 72%, 46%, 0.4);
-    --pale-blue:hsl(221, 100%, 96%);
+    --pale-blue:hsl(222, 86%, 86%);
     --lavender: hsl(241, 100%, 89%);
     --gray-blue:hsl(224, 30%, 27%);
     --white:hsl(0, 0%, 100%);
     --para-text-size: 18px;
 }
 body{
-    font-family: "Hanken"  ,serif , sans-serif;
+    font-family: "Hanken" , serif , sans-serif;
     font-weight:normal;
+}
+
+/* Holders */
+
+.container{
+    display:flex;
+}
+.container__column{
+    display:flex;
+    flex-direction:column;
+ 
+}
+
+.container--center{
+    align-items: center;
+    justify-content: center;
+}
+
+/* Utilities */
+.small-text{
+    font-size: small;
+}
+.heading__main{
+    font-size: medium;
+}
+.text--center{
+    text-align: center;
+}
+
+
+/* Specific Styles */
+.screen-active{
+    flex-direction: column;
+    width:100%;
+}
+#result-section{
+    padding:10%;
+    background:linear-gradient(var(--slate-blue-gradient) 10%,var(--royal-blue-gradient) 50% );
+    row-gap:12px;
+    color:var(--white);
+    border-end-end-radius:1em;
+    border-end-start-radius: 1em;
+    /* width:100%; */
+}
+.total-score{
+    font-size:3rem;
+}
+.small-text>span{
+    /* This is to place the small text in two lines */
+    display:block;
+    text-align: center;
+}
+.stat-circle{
+    border-radius:50%;
+    min-height:8em;
+    min-width:8em;
+    margin:1em 0;
+    background: linear-gradient(var(--violet-blue) 10%,var(--persian-blue));
+}
+
+#summary-section{
+    align-items: flex-start;
+    gap:1em;
+    padding:1em;
+    width:100%;
+}
+.list{
+    gap:20px;
+    width:100%;
+}
+.list>.list-item{
+    justify-content:space-between;
+    width: 100%;
+    border-radius:1.5em;
+    padding:1em;
+}
+.description-container{
+    gap:12px;
+
+}
+.list--item--icon{
+    width: 20px;
+}
+
+.btn{
+    background-color: var(--gray-blue);
+    width:100%;
+    padding:1em;
+    color:var(--white);
+    border-radius:1.5em;
+    outline:0;
+    border:0;
+    user-select: none;
+}
+
+/* Desktop Media Queries */
+@media (min-width:600px){
+
+    .wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    .screen-active{
+        display:flex;
+        flex-direction: row;
+        border-radius: 1.5em;
+        box-shadow: 4px 5px 4px 5px grey;
+        width:80%;
+    }
+    #result-section{
+        border-radius:1.5em;
+    }
+    
+    .list-item{
+        width:2em;
+    }
+    
 }

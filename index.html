@@ -14,37 +14,34 @@
 </head>
 
 <body>
-  <main>
-    <div id="wrapper">
-      <section class="container round-border " name="Result">
-
-        <div class="container__column">
+  <main class="wrapper">
+    <div class="container screen-active">
+      <section class=" container__column container--center" id="result-section" name="Result">
           <!-- center-align -->
-          <h1 class="heading__main">Your Result</h1>
+          <h1 class="heading__main" style="color: var(--pale-blue);">Your Result</h1>
           <!-- For the circle with entire score  -->
-          <div class="container__column">
+          <div class="container__column container--center">
 
-            <div class="stat-circle">
+            <div class="stat-circle container__column container--center">
               <span class="total-score">76</span>
-              <p class="small-text">of 100</p>
+              <p class="small-text" style="color:var(--pale-blue)">of 100</p>
             </div>
 
-            <h2>Great</h2>
+            <h2 class="heading__main">Great</h2>
           </div>
-          <p class="small-text text-center">You scored higher than 65% of the people who have taken these tests.</p>
-        </div>
+          <p class="small-text" style="color:var(--pale-blue);">
+            <span>You scored higher than 65% of the people</span> 
+            <span>who have taken these tests.</span>
+          </p>
 
       </section>
 
-      <section class="container" name="Summary">
-        <div class="container__column">
-          <h1 class="heading__main">Summary</h1>
+      <section class="container__column" id="summary-section" name="Summary">
+          <h1 class="heading__main" style="color: var(--gray-blue);">Summary</h1>
+          <ul class="list container__column"></ul>
+          <button class="btn container__column">Continue</button>
+        </section>
 
-
-          <ul class="list"></ul>
-
-        </div>
-      </section>
     </div>
   </main>
 

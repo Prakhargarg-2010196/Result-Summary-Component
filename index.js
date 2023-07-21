@@ -1,21 +1,41 @@
+// Globals
+const list = document.querySelector('.list');
+const root = document.querySelector(':root');
+
+
+function getAllColors(root) {
+    let rootStyleObject = getComputedStyle(root);
+    let colors = [];// for storing the colors
+    let lightRed = rootStyleObject.getPropertyValue("--light-red");
+    let orangeyYellow = rootStyleObject.getPropertyValue("--orangey-yellow");
+    let greenTeal = rootStyleObject.getPropertyValue("--green-teal");
+    let cobaltBlue = rootStyleObject.getPropertyValue("--cobalt-blue");
+    colors.push(lightRed, orangeyYellow, greenTeal, cobaltBlue);
+    console.log(colors);
+    return colors;
+}
+const colors = getAllColors(root);
 
 // An IIFE function expression to create dynamic DOM 
-const list = document.querySelector('.list');
+
+
 (() => {
     // now we would generate a list with list-items in it 
     // with the structure described in html
     // also we would use the json file array of objects to populate the data
-    
     for (let i = 0; i < 4; i++) {
         let listItem = document.createElement('li');
+        
         // give each list item unique id 
         listItem.setAttribute('id', `${i}`);
+        listItem.style.backgroundColor = `hsl(${colors[i]},0.1)`;
+        listItem.classList.add('container','list-item');
         // creaate two containers for each list item
         let descriptionContainer = document.createElement('div');
-        descriptionContainer.classList.add('container');
+        descriptionContainer.classList.add('description-container','container');
         
         let scoreContainer = document.createElement('div');
-        scoreContainer.classList.add('container');
+        scoreContainer.classList.add('score-container','container', 'small-text');
         
         // Append the containers to the list Item 
         listItem.appendChild(descriptionContainer);
@@ -29,18 +49,22 @@ const list = document.querySelector('.list');
         const listItemTitle = document.createElement('span');
         listItemTitle.classList.add('list--item--title');
         
-        // score container items
-        const listItemScoreElement = document.createElement('span');
-        listItemScoreElement.classList.add('small-text', 'container');
+        // score container items        
         const listItemScoreNumerator = document.createElement('span');
         listItemScoreNumerator.classList.add('numerator');
-        listItemScoreElement.appendChild(listItemScoreNumerator);
+        listItemScoreNumerator.style.color="var(--gray-blue)";
+
+        const listItemScoreDenominator = document.createElement('span');
+        listItemScoreDenominator.textContent = "/100";
+        listItemScoreDenominator.style.color = "var(--pale-blue)";
         
-        // append the list items to the associated containers 
+        // append the list items to the associated containers
         // todo: Make a general func for multiple appends to a specific element 
         descriptionContainer.appendChild(listIcon)
         descriptionContainer.appendChild(listItemTitle);
-        scoreContainer.appendChild(listItemScoreElement);
+        scoreContainer.appendChild(listItemScoreNumerator);
+        scoreContainer.appendChild(listItemScoreDenominator)
+        // console.log(scoreContainer);
         
         
         list.appendChild(listItem);
@@ -59,17 +83,22 @@ const list = document.querySelector('.list');
 // function to populate the list of items 
 function populateList(listItems) {
     const listNodes = list.children;
+    
     for (let i = 0; i < listNodes.length;i++) {
         const containers = listNodes[i].children;
         const descriptionChildren = containers[0].children;
         const icon = descriptionChildren[0];
-        icon.setAttribute('href', `${listItems[i].icon}`)
+        icon.setAttribute('src', `${listItems[i].icon}`)
         icon.setAttribute('alt',`${listItems[i].category}`)
         const category = descriptionChildren[1];
         category.textContent = `${listItems[i].category}`;
-        const scoreContainer = containers[1].children;
-        const numerator = scoreContainer[0];
-        numerator.textContent = `${listItems[i].score}/100`;
+        category.style.color = `hsl(${colors[i]})`;
+        const scoreContainer = containers[1];
+        
+        const scoreContainerChildren = containers[1].children;
+        const numerator = scoreContainerChildren[0];
+        numerator.textContent = `${listItems[i].score}`;
+
     }
     
 }

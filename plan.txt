@@ -2,6 +2,8 @@
 # Mobile view is as follows 
 
 I will start building this project with the mobile view 
+- How to approach mobile first 
+- 
 (mvp: minimum viable product)
 ## Components 
 ### Major Regions 
